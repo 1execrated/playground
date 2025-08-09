@@ -1,123 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>python for stupid ahh people</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #1e1e1e;
-            color: #dcdcdc;
-        }
-        header {
-            background-color: #0078d7;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        .container {
-            padding: 20px;
-        }
-        h2 {
-            color: #9cdcfe;
-        }
-        h3 {
-            color: #569cd6;
-        }
-        .section {
-            margin-bottom: 20px;
-            padding: 20px;
-            background-color: #252526;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        p {
-            margin: 10px 0;
-        }
-        .console {
-            background-color: #1e1e1e;
-            padding: 10px;
-            border-left: 4px solid #0078d7;
-            font-family: monospace;
-            color: #dcdcdc;
-            margin: 10px 0;
-            border-radius: 5px;
-            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-        .console code {
-            white-space: pre;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>#bball4ever</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    html, body {
+      background: #fffbe8;
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    header {
+      width: 100%;
+      padding: 1em 0 0.5em 0;
+      text-align: center;
+      font-size: 3em;
+      color: #ff7c00;
+      text-shadow: 3px 3px 0 #000, 5px 5px 0 #ffe000;
+      letter-spacing: 0.1em;
+      font-family: 'Permanent Marker', 'Comic Sans MS', cursive;
+      border-bottom: 4px dashed #222;
+      margin-bottom: 1em;
+      background: linear-gradient(90deg, #fffbe8 80%, #ffe000 100%);
+      position: relative;
+    }
+    header::after {
+      content: '';
+      display: block;
+      width: 70%;
+      margin: 0 auto;
+      border-bottom: 4px wavy #ff7c00;
+      border-radius: 80% 60% 80% 40%/60% 40% 60% 40%;
+    }
+    .doodle-ball {
+      width: 140px;
+      margin: 1em auto 0.5em auto;
+      display: block;
+    }
+    main {
+      width: 90%;
+      max-width: 650px;
+      margin: 0 auto;
+      background: #fffdea;
+      border: 3px dashed #c16b00;
+      border-radius: 26px 42px 38px 28px/32px 52px 28px 22px;
+      box-shadow: 6px 6px 0 #ffeb99, 0 0 0 8px #fffbe8;
+      padding: 1.2em 1.5em 2em 1.5em;
+    }
+    h2 {
+      color: #ff7c00;
+      font-size: 2em;
+      margin-top: 0.5em;
+      font-family: 'Permanent Marker', 'Comic Sans MS', cursive;
+      text-shadow: 2px 2px 0 #ffe000;
+      margin-bottom: 0.2em;
+    }
+    p {
+      font-size: 1.35em;
+      color: #333;
+      line-height: 1.6;
+      margin-bottom: 1.2em;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-shadow: 1px 1px 0 #ffe;
+    }
+    ul {
+      color: #c16b00;
+      font-size: 1.13em;
+      font-family: 'Comic Sans MS', cursive;
+      margin: 1em 0 2em 1.4em;
+      padding-left: 0.8em;
+    }
+    li {
+      margin-bottom: 0.7em;
+      position: relative;
+      text-transform: none;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55em;
+    }
+    .icon {
+      font-size: 1.3em;
+      flex-shrink: 0;
+      margin-top: 0.08em;
+      filter: grayscale(0.4) brightness(1.08);
+    }
+    .scribble {
+      font-size: 1.1em;
+      color: #ff7c00;
+      font-family: 'Permanent Marker', 'Comic Sans MS', cursive;
+      text-shadow: 2px 2px #ffe000;
+      margin-bottom: 1.5em;
+      display: block;
+      transform: rotate(-2deg);
+    }
+    .footer-doodles {
+      width: 100%;
+      height: 70px;
+      margin-top: 2em;
+      background: none;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      pointer-events: none;
+    }
+    .about-team {
+      background: #ffe9b6;
+      border: 2px dashed #c16b00;
+      border-radius: 14px 28px 20px 12px/18px 32px 20px 14px;
+      margin: 1em 0 2em 0;
+      padding: 0.8em 1.1em 0.8em 1.1em;
+      font-size: 1.08em;
+      color: #844a00;
+      font-family: 'Comic Sans MS', cursive;
+      text-shadow: 1px 1px 0 #ffe;
+      box-shadow: 2px 2px 0 #ffeb99;
+    }
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      header {
+        font-size: 2em;
+      }
+      .doodle-ball {
+        width: 90px;
+      }
+      main {
+        padding: 0.7em 0.5em 1em 0.5em;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>python for stupid ahh people</h1>
-        <p>a guide for those that are stupid for programming (specifically people called Edwin Kim)</p>
-        <div style="text-align: center; margin-top: 20px;">
-            <img src="https://cdn.discordapp.com/attachments/1226767602542579713/1396731204689985597/image.png?ex=687f26cd&is=687dd54d&hm=9f13dcbe02a4cc2567cedc33bf454ff4a5f2ab78cc0e9adbb2c9679660cacc26&" alt="Centered Photo" style="max-width: 100%; height: 400px; width: 500px;">
-        </div>
-    </header>
-    <div class="container">
-        <!-- Variable Types Section -->
-        <div class="section">
-            <h2>Variable Types</h2>
-            <h3>Integer (int)</h3>
-            <p>An integer is a whole number, e.g., 10, -5, 0.</p>
-            <div class="console">Example: <code>x = 10</code></div>
-            <h3>Float</h3>
-            <p>A float is a number with a decimal point, e.g., 3.14, -2.71.</p>
-            <div class="console">Example: <code>y = 3.14</code></div>
-            <h3>Boolean (bool)</h3>
-            <p>A boolean is either <code>True</code> or <code>False</code>.</p>
-            <div class="console">Example: <code>is_sunny = True</code></div>
-        </div>
-
-        <!-- Loops Section -->
-        <div class="section">
-            <h2>Loops</h2>
-            <h3>While Loop</h3>
-            <p>This loop is gonna run as long as a condition is true. Most of the 'while' loops we're gonna see in this unit is gonna be with 'counters' (or contadores in Spanish).</p>
-            <p>Counters mean that we will increase a variable by +1 every time we run through the loop.</p>
-            <div class="console">
-                Example: <code>i = 0<br>while i &lt; 5:<br>&nbsp;&nbsp;&nbsp;&nbsp;print("hi")<br>&nbsp;&nbsp;&nbsp;&nbsp;i += 1</code>
-            </div>
-            <p>In the example, we increase 'i' by +1 every time we run through the loop until we reach 5; meaning our while loop will stop once 'i' becomes greater than 5.</p>
-            <p><strong>Extra:</strong></p>
-            <p>I haven't seen the teacher use this, but if he asks, you'll already know. There's something we call 'while true loops' or just infinite loops.</p>
-            <div class="console">
-                Example: <br><code>while True:<br>&nbsp;&nbsp;&nbsp;&nbsp;print("hi")</code>
-            </div>
-            <p>In this case, we're looping while 'True'. Since True isn't a variable that we're ever gonna change, it will always stay True, meaning the loop will never stop.</p>
-            <h3>For Loop</h3>
-            <p>For loops iterate over a sequence. Oh shit, I forgot you're dumb asf, I'll make this sound easier for you.</p>
-            <p>For loops are while loops but without the need of us having to increase a variable to keep track if it's higher than what's needed. Still not getting it?</p>
-            <p>Maybe this is simpler: In for loops, you can set a specific amount of times a loop will repeat without the need of a variable that will increase every time we run through the loop. Stiiiiiiiiill not getting it? Well sucks, I don't find any other way to explain it rather than with examples:</p>
-            <div class="console">
-                Example: <br><code>for i in range(5):<br>&nbsp;&nbsp;&nbsp;&nbsp;print(i)</code>
-            </div>
-            <p>In this example, 'i' is our temporary variable. Now, some questions you might have: What do u mean temporary? What's the difference between the 'i' in the while loop and this one?</p>
-            <p>I'll answer both of 'em rn: I say temporary because this variable is only used for the loop, we're not setting it BEFORE the loop. Now the difference is that 'i' in the for loop is only there to keep track of the times we've repeated the loop. In the while loop, we normally have to increase it by +1 or check if the condition is True before running the loop again.</p>
-            <div class="console">
-                Example 2: <br><code>repetitions = int(input("Enter a number: "))<br>for i in range(repetitions):<br>&nbsp;&nbsp;&nbsp;&nbsp;print(i)</code>
-            </div>
-            <p>In this case, we grab the user's input as an int (whole number), and we store it in the 'repetitions' variable. Then in the for loop, we use the 'repetitions' variable as our range (the times we will repeat it basically) and print 'i' the amount of repetitions the user input.</p>
-            <p>Now, here's another thing you might notice in the for loop: Two numbers in the 'range' thing, like this: <code>for i in range(0, 6)</code>. This is very easy to understand though. The first number specifies where the loop will start, and the second number where the loop will end. Not getting it again? Figured bish. Here's an example:</p>
-            <div class="console">
-                Example 3: <br><code>for i in range(3, 6):<br>&nbsp;&nbsp;&nbsp;&nbsp;print(i)</code>
-            </div>
-            <p>In this case, this would be our output:</p>
-            <div class="console">
-                <code>3<br>4<br>5</code>
-            </div>
-            <p>I hope you get it. If you don't, don't ask me, ask ChatGPT.</p>
-            <p>"Oh, but why does it print until 5 and not 6???????" I got the ACTUAL explanation for you. I wish the teacher explained this, but he's too stupid to explain something so simple.</p>
-            <p>The way Python indexes for loops is quite awkward, but it's better for actual people that program Python professionally. Here's the explanation anyways:</p>
-            <p>This is the range function with the two parameters we know: <code>range(start, stop)</code>.</p>
-            <p>Start is the number where the for loop will start from, and stop is the number it has to reach to stop looping. The function works in this way: The start value is included (starts from here), and the stop value is excluded (goes up to, but does not include this). This is what's happening with Example 3: <code>for i in range(3, 6)</code> prints 3, 4, and 5. It stops just before 6.</p>
-        </div>
+  <header>#bball4ever</header>
+  <svg class="doodle-ball" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="60" rx="54" ry="54" fill="#ffb74d" stroke="#c16b00" stroke-width="6"/>
+    <path d="M20 50 Q60 60 100 50" stroke="#c16b00" stroke-width="6" fill="none" />
+    <path d="M20 70 Q60 60 100 70" stroke="#c16b00" stroke-width="6" fill="none" />
+    <path d="M60 6 Q70 60 60 114" stroke="#c16b00" stroke-width="6" fill="none" />
+    <path d="M30 30 Q60 60 90 90" stroke="#c16b00" stroke-width="6" fill="none" />
+    <path d="M90 30 Q60 60 30 90" stroke="#c16b00" stroke-width="6" fill="none" />
+    <ellipse cx="60" cy="60" rx="54" ry="54" fill="none" stroke="#fffbe8" stroke-width="3" stroke-dasharray="6 15"/>
+  </svg>
+  <main>
+    <span class="scribble">basketball is awesome! come play with us!!</span>
+    <div class="about-team">
+      hey! we're a non-profit team based at Montano College, a school in Guatemala. we wanna get all grades playing basketball, so we host tournaments against other schools to up our game (and because it's just fun).<br><br>
+      everyone should get a shot at playing, no matter your level.
     </div>
+    <h2>basketball is a great sport!</h2>
+    <p>
+      you don't need to be tall, fast, or super skilled. the only thing you need is a ball, a hoop (or a trash can), and the courage to shoot your shot!
+    </p>
+    <ul>
+      <li><span class="icon">🏀</span>everyone should be allowed & encouraged to play basketball</li>
+      <li><span class="icon">⛹️‍♂️</span>it doesn't matter how you play, just have fun!</li>
+      <li><span class="icon">😂</span>missing every shot? that's just more time to laugh!</li>
+      <li><span class="icon">🥇</span>every court is for everyone—no gatekeeping!</li>
+      <li><span class="icon">🏆</span>play with friends, play at tournaments, just play!</li>
+      <li><span class="icon">⛹️‍♀️</span>we encourage all grades to join in and hoop!</li>
+    </ul>
+    <p>
+      <em class="scribble">remember: airballs are just vertical passes!</em>
+    </p>
+  </main>
+  <div class="footer-doodles">
+    <svg width="180" height="60" viewBox="0 0 180 60">
+      <path d="M5 55 Q40 10 80 55 Q120 10 175 55" stroke="#d7a13a" stroke-width="5" fill="none" />
+      <ellipse cx="35" cy="30" rx="8" ry="8" fill="#fffbe8" stroke="#c16b00" stroke-width="2"/>
+      <ellipse cx="90" cy="35" rx="10" ry="10" fill="#fffbe8" stroke="#c16b00" stroke-width="2"/>
+      <ellipse cx="150" cy="28" rx="7" ry="7" fill="#fffbe8" stroke="#c16b00" stroke-width="2"/>
+      <path d="M20 48 Q30 40 40 48" stroke="#d7a13a" stroke-width="2" fill="none"/>
+      <path d="M80 52 Q90 44 100 52" stroke="#d7a13a" stroke-width="2" fill="none"/>
+      <path d="M140 50 Q150 40 160 50" stroke="#d7a13a" stroke-width="2" fill="none"/>
+    </svg>
+  </div>
 </body>
 </html>
